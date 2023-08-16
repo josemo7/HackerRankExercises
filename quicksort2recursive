@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+
+static void quickSort(int[] ar) {
+    
+    var pivot = ar[0];
+    var left = new List<int>();
+    var right = new List<int>();
+    
+    for(var i = 1; i < ar.Length; ++i)
+    {
+        if(ar[i] < pivot)
+        {
+            left.Add(ar[i]);
+        }
+        else 
+        {
+            right.Add(ar[i]);
+        }
+    }
+    
+    var leftAr = left.ToArray();
+    var rightAr = right.ToArray();
+    
+    if(left.Count > 1){
+        quickSort(leftAr);
+    }
+    if(right.Count > 1){
+        quickSort(rightAr);
+    }
+    
+    var index = 0;
+    
+    for(var i = 0; i < leftAr.Length; ++i){
+        ar[index] = leftAr[i];
+        ++index;
+    }
+    
+    ar[index] = pivot;
+    ++index;
+    
+    for(var i = 0; i < rightAr.Length; ++i){
+        ar[index] = rightAr[i];
+        ++index;
+    }
+    
+    Console.WriteLine(string.Join(" ", ar));
+    
+}
+
+/* Tail starts here */
+    static void Main(String[] args) {
+           
+           int _ar_size;
+           _ar_size = Convert.ToInt32(Console.ReadLine());
+           int [] _ar =new int [_ar_size];
+           String elements = Console.ReadLine();
+           String[] split_elements = elements.Split(' ');
+           for(int _ar_i=0; _ar_i < _ar_size; _ar_i++) {
+                  _ar[_ar_i] = Convert.ToInt32(split_elements[_ar_i]); 
+           }
+
+           quickSort(_ar);
+    }
+}
