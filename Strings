@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+
+// To execute C#, please define "static void Main" on a class
+// named Solution.
+
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        string source = "aba";
+        string target = "bbccc";
+
+        List<int> remain = new List<int>();
+
+        foreach(var s in target)
+        {
+            remain.Add(s);
+        
+        }
+        
+        foreach(var s in source)
+        {
+
+            for (var i = 0; i < target.Length; i++)
+        {
+            if(s == target[i])
+            {
+                remain.Remove(s);
+            }
+
+            //Console.WriteLine("Hello, World");
+        }
+
+        }
+
+        if(remain.Count == 0)
+        {
+            //return True;
+            Console.WriteLine("True");
+
+        }
+        else
+        {
+            //return False;
+            Console.WriteLine("False");
+
+        }
+    
+    
+        
+    }
+}
+
+
+// Your previous Plain Text content is preserved below:
+
+// Pad for Jose Olmedo - Software Development Engineer in Test
+
+// Given a source string and a target string, you want to create the target string using copies of the source string, where you can remove characters from the source string. 
+
+// Part A. Write a function that, given the source string and target string, returns a Boolean for whether it’s possible to create the target string from the source string.
+
+// Ex. source = “aba”, target = “bbccc”, return False; 
+
+//source = “abc” , target = “bbccc”, return True
+
+
+//a 
+//bbccc
+
+//b
+//bbccc
+
+//c 
+//ccc
+
+//if(list == 0)
+//
+
+// Part B. Write a function that, given the source string and target string, returns the minimum number of copies of the source string required to create the target string.
+
+// Ex. source = “aba”, target = “baba”, return 2, because the target can be constructed by “ba|ba”, requiring a minimum of 2 substrings.
+//
+
+// Ex. source = “ap”, target = “papa”, return 3, because the target can be constructed by “p|ap|a”, requiring a minimum of 3 substrings.
+
+// sa, asas -> a\sa\s-> 3
